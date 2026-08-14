@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "focus-agent"
+version = "2.0.0"
+description = "Focus Agent — 生命型常驻 Agent：永动呼吸 + 四层记忆 + 双时间轴事实库 + Dreaming"
+readme = "packaging/README-DISTRIBUTION.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = ["loguru", "numpy"]
+
+[tool.setuptools]
+packages = ["focus"]
