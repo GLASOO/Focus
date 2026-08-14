@@ -1,0 +1,20 @@
+# Focus Agent — 运行期依赖
+# 核心（Graph DB 纯标准库，模型后端按需）
+numpy>=1.24
+loguru>=0.7
+
+# 推理后端（三选一，按 FOCUS_BACKEND 使用）
+#   1. MLX 本地（macOS Apple Silicon）
+mlx-lm>=0.20
+#   2. OpenAI 兼容（LM Studio 本地 0.8B / sensenova 云端）
+#      （openai SDK 非必需，走原生 requests/urllib）
+#   3. Dummy（无模型试跑，无需额外依赖）
+
+# DMN 语义嵌入（Phase 3，bge-small-zh-v1.5）
+mlx-embeddings>=0.1.0
+
+# 双窗口 UI（Phase 4，可选；无 TTY 自动退化为纯日志）
+textual>=0.50
+
+# 测试
+pytest>=7.0
