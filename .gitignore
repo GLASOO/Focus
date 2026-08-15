@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Focus Agent 数据（SQLite 是运行时产物）
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/*.log
+
+# macOS
+.DS_Store
+
+# ---- Runtime data (personal memory, never publish) ----
+data/
+
+# ---- Personal machine files (not for distribution) ----
+qclaw_watchdog.sh
+QClaw_watchdog_report.md
