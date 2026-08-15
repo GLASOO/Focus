@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "focus-agent"
+version = "2.0.0"
+description = "Focus Agent — 生命型常驻 Agent：永动呼吸 + 四层记忆 + 双时间轴事实库 + Dreaming"
+readme = "packaging/README-DISTRIBUTION.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = ["loguru>=0.7", "numpy>=1.24"]
+
+# 可选依赖分组（pip install "focus-agent[extra]"）。核心依赖仅含运行期必需项，
+# 推理后端 / UI / 测试按需安装，避免非 Apple Silicon 环境被强制拉取 mlx-*。
+[project.optional-dependencies]
+# Apple Silicon 本地推理（MLX）：KV 缓存、流式生成、语义嵌入
+mlx = ["mlx-lm>=0.20", "mlx-embeddings>=0.1.0"]
+# 双窗口 TUI（无 TTY 时自动退化为纯日志）
+ui = ["textual>=0.50"]
+# 测试
+test = ["pytest>=7.0"]
+# 一次性拉齐（注意：mlx-* 仅 macOS arm64 可用）
+all = ["mlx-lm>=0.20", "mlx-embeddings>=0.1.0", "textual>=0.50", "pytest>=7.0"]
+
+[tool.setuptools]
+packages = ["focus"]
